@@ -1,10 +1,10 @@
-import styles from './Header.module.css'
+import styles from './Footer.module.css'
 
-const Header = ({titulo}) =>{
+const Header = ({autor}) =>{
     return(
         <>
         <header className={styles.header}>
-        <h1 className={styles.title}>{titulo}</h1>
+        <h2 className={styles.title}>{autor}</h2>
         </header>
         </>
     )
