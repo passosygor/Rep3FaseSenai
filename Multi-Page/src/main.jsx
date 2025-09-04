@@ -4,25 +4,36 @@ import './index.css'
 // import App from './App.jsx'
 
 //react router
-
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import { Home } from './pages/Home/Home';
+import Home from './pages/Home/Home';
+import Sobre from './pages/Sobre/Sobre';
+import Main from './layout/Main/Main';
+import Blog from './pages/Blog/Blog';
+
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    Component: <Home></Home>,
-  },
-  {
-    // path:"sobre",
-    // Component:<Sobre></Sobre>
+    element: <Main />,
+    children: [
+      { path: "/", element: <Home></Home> },
+      { path: "sobre", element: <Sobre /> },
+      { path: "blog", element: <Blog /> },
+    ]
   }
+  // {
+  //   path: "/",
+  //   element: <Home/>,
+  // },
+  // {
+  //   path:"sobre",
+  //   element:<Sobre/>
+  // }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <RouterProvider router={router} />,
+    <RouterProvider router={router} />
     {/* <App /> */}
   </StrictMode>,
 )

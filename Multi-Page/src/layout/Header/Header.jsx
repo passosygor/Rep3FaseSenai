@@ -1,17 +1,23 @@
 import React from 'react'
 import { NavLink } from "react-router";
 
-export const Header = () => {
-  return (
-    <div>
-    <nav>
-      <NavLink to="/" end>
-        Home
-      </NavLink>
-      <NavLink to="/sobre" end>
-        Sobre
-      </NavLink>
-    </nav>
-    </div>
-  )
+const Header = () => {
+    return (
+        <div>
+            <nav className='flex gap-4'>
+                <NavLink to="/" end>
+                    Home
+                </NavLink>
+                <NavLink to="/sobre" end>
+                    Sobre
+                </NavLink>
+                <NavLink to="/blog" end>
+                   Blog
+                </NavLink>
+
+            </nav>
+        </div>
+    )
 }
+
+export default Header
