@@ -737,6 +737,31 @@ async function main() {
         senha: "123",
         cargo: "Médico"
       },
+      { nome:"Joao", 
+        email: "joao34@email.com", 
+        senha: "123",
+        cargo: "Médico"
+      },
+      { nome:"Joao", 
+        email: "joao34@email.com", 
+        senha: "123",
+        cargo: "Médico"
+      },
+      { nome:"Joao", 
+        email: "joao34@email.com", 
+        senha: "123",
+        cargo: "Médico"
+      },
+      { nome:"Joao", 
+        email: "joao34@email.com", 
+        senha: "123",
+        cargo: "Médico"
+      },
+      { nome:"Joao", 
+        email: "joao34@email.com", 
+        senha: "123",
+        cargo: "Médico"
+      }
     ],
   });
 
