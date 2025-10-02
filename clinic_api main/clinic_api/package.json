@@ -2,9 +2,10 @@
   "name": "clinic_api",
   "version": "1.0.0",
   "description": "API for students development clinic project",
-  "type": "module",
   "main": "src/app.js",
+  "type": "module",
   "scripts": {
+    "test:esm": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "npx nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node prisma/seed.js"
@@ -21,6 +22,7 @@
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
+    "jest": "^30.2.0",
     "prisma": "^6.13.0"
   },
   "prisma": {
