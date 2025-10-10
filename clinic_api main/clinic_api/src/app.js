@@ -8,6 +8,7 @@ import { pacientesRouter } from "./routes/pacientes.js";
 import { consultasRouter } from "./routes/consulta.js";
 import { prontuarioRouter } from "./routes/prontuario.js";
 import { exameRouter } from "./routes/exame.js";
+import { authRouter } from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -20,12 +21,16 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
+app.use(authRouter);
 // Rotas
 app.use(usuarioRouter);
 app.use(exameRouter);
 app.use(pacientesRouter);
 app.use(prontuarioRouter);
 app.use(consultasRouter);
+
+
+
 
 const port = 3000;
 app.listen(port, () => console.log(`Api rodando na porta ${port}`));

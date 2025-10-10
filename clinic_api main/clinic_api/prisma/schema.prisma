@@ -7,6 +7,15 @@ datasource db {
   url      = "postgresql://postgres:senai@127.0.0.1:5432/clinicadb"
 }
 
+model Token {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    Int
+  user Usuario @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  revoked   Boolean  @default(false)  // ← ADICIONAR ESTA LINHA!
+}
+
 // Tabela usuario
 model Usuario {
   id         Int          @id @default(autoincrement())
@@ -15,6 +24,7 @@ model Usuario {
   senha      String
   cargo      String
   Prontuario Prontuario[]
+   tokens Token[]  // ← ADICIONE ESTA LINHA (lado oposto da relação)
 
   @@map("usuario")
 }
