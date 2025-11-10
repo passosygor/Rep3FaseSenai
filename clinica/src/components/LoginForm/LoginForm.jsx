@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
 import axios from "axios"
 import { toast } from "react-toastify"
@@ -10,11 +10,18 @@ const LoginForm = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     //contexto
-    const { login } = useAuth()
-    //rota com react route
-    const navigate = useNavigate
-    //Modal
+    const { login, user } = useAuth()
+    //rotas com react route
+    const navigate = useNavigate()
+    // modal
     const [isModalOpen, setIsModalOpen] = useState(false)
+
+
+    useEffect(() => {
+        if (user) {
+            navigate('/dashboard')
+        }
+    }, [user, navigate])
 
 
     //função de validação do login
@@ -45,10 +52,9 @@ const LoginForm = () => {
             })
 
             setTimeout(() => navigate('/dashboard'), 2000)
-                
 
         }
-        catch (error){
+        catch (error) {
             console.error('Erro ao verificar o usuário')
             toast.error('Erro ao conectar com o servidor', {
                 autoClose: 1000,
@@ -97,14 +103,14 @@ const LoginForm = () => {
 
             <div className="flex justify-between mt-4 text-sm">
                 <button className="cursor-pointer">Esqueceu sua senha?</button>
-                <button className="cursor-pointer" onClick={()=>setIsModalOpen(true)}>Criar conta</button>
+                <button className="cursor-pointer" onClick={() => setIsModalOpen(true)}>Criar conta</button>
             </div>
 
-            <Modal isOpen={isModalOpen} onClose={()=> setIsModalOpen(false)}>
-            <RegisterUser />
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <RegisterUser />
             </Modal>
-
         </div>
+
     )
 }
 
